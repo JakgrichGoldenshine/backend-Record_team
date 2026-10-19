@@ -29,17 +29,17 @@ app.get('/project', (req, res) => {
 
 app.get('/members/:id', (req, res) => {
   const id = Number(req.params.id);                  // /members/2 ได้ id = 2
-  const members = members.find((m) => m.id === id);   // หาสมาชิกที่ id ตรงกัน
-  if (!members) {                                     // ถ้าหาไม่พบ
+  const member = members.find((m) => m.id === id);   // หาสมาชิกที่ id ตรงกัน
+  if (!member) {                                     // ถ้าหาไม่พบ
     return res.status(404).json({ message: 'Member not found' });
   }
-  res.json(members);
+  res.json(member);
 });
 
 const ideas = [
-  { method: GET, path: 'record/student', detail: 'เรียกข้อมูลนักเรียน' },
-  { method: GET, path: 'record/student/Department', detail: 'เรียกข้อมูลแผนก' },
-  { method: GET, path: 'record/student/awards', detail: 'เรียกข้อมูลรางวัล' },
+  { method: 'GET', path: 'record/student', detail: 'เรียกข้อมูลนักเรียน' },
+  { method: 'GET', path: 'record/student/Department', detail: 'เรียกข้อมูลแผนก' },
+  { method: 'GET', path: 'record/student/awards', detail: 'เรียกข้อมูลรางวัล' },
 ];
 
 app.get('/ideas', (req, res) => {
