@@ -1,5 +1,9 @@
-const express = require('express');
-const app = express();
+const express=require('express');
+const app=express();
+
+app.get('/hello',(req, res)=>{
+    res.json({ message: 'สวัดดี Back-End!' });
+});
 
 const members = [
   { id: 1, name: 'นายจักรกริช ทองฉาย', role: 'Developer A' },
@@ -14,34 +18,23 @@ const project = {
   members: members,
 };
 
-const ideas = [
-  { method: GET, path: 'record/student', detail: 'เรียกข้อมูลของนักศึกษา' },
-  { method: PUSH, path: 'record/student/Department', detail: 'PUSH ข้อมูลที่แก้ไขของนักศึกษานั้นตามแผนกของบุคคล' },
-  { method: GET, path: 'record/student/awards', detail: 'เรียกข้อมูลรางวัลของบุคคล' },
-];
-
-app.get('/hello', (req, res) => {
-  res.json({ message: 'สวัสดี Back-End!' });
-});
-
 app.get('/project', (req, res) => {
   res.json(project);
 });
 
 app.get('/members/:id', (req, res) => {
   const id = Number(req.params.id);                  // /members/2 ได้ id = 2
-  const members = members.find((m) => m.id === id);   // หาสมาชิกที่ id ตรงกัน
-  if (!members) {                                     // ถ้าหาไม่พบ
+  const member = members.find((m) => m.id === id);    // หาสมาชิกที่ id ตรงกัน
+  if (!member) {                                      // ถ้าหาไม่พบ
     return res.status(404).json({ message: 'Member not found' });
   }
   res.json(member);
 });
 
-
-app.listen
 const ideas = [
-  { method: 1, path: 'คิดเอง', detail: 'ระดมความคิด' },
-  { method: 2, path: 'Ai', detail: 'ใช้เทคโนโลยี AI' },
+  { method: 'GET', path: 'record/student', detail: 'เรียกข้อมูลนักเรียน' },
+  { method: 'GET', path: 'record/student/Department', detail: 'เรียกข้อมูลแผนก' },
+  { method: 'GET', path: 'record/student/awards', detail: 'เรียกข้อมูลรางวัล' },
 ];
 
 app.get('/ideas', (req, res) => {
