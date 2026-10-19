@@ -19,7 +19,7 @@ const project = {
   team: 'Record team',
   topic: 'ระบบบันทึกข้อมูลการแข่งขันทักษะวิชาชีพ',
   problem: 'ปัญหาที่พบคือการบันทึกข้อมูลการแข่งขันทักษะวิชาชีพยังไม่มีระบบที่สามารถจัดเก็บและเรียกดูข้อมูลได้อย่างมีประสิทธิภาพ',
-  users: ['user', 'admin', 'teacher', 'student'],
+  users: ['user', 'admin', 'teacher'],
   members: members,
 };
 
