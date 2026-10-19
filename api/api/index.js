@@ -36,11 +36,10 @@ app.get('/members/:id', (req, res) => {
   res.json(members);
 });
 
-
-app.listen
 const ideas = [
-  { method: 1, path: 'คิดเอง', detail: 'ระดมความคิด' },
-  { method: 2, path: 'Ai', detail: 'ใช้เทคโนโลยี AI' },
+  { method: GET, path: 'record/student', detail: 'เรียกข้อมูลนักเรียน' },
+  { method: GET, path: 'record/student/Department', detail: 'เรียกข้อมูลแผนก' },
+  { method: GET, path: 'record/student/awards', detail: 'เรียกข้อมูลรางวัล' },
 ];
 
 app.get('/ideas', (req, res) => {
